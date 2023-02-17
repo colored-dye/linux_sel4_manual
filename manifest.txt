@@ -1,0 +1,11 @@
+kernel https://github.com/seL4/seL4 11.0.0
+projects/musllibc https://github.com/seL4/musllibc 11.0.x-compatible
+projects/seL4_libs https://github.com/seL4/seL4_libs 11.0.x-compatible
+projects/seL4_projects_libs https://github.com/seL4/seL4_projects_libs 11.0.x-compatible
+projects/sel4runtime https://github.com/seL4/sel4runtime 11.0.x-compatible
+projects/util_libs https://github.com/seL4/util_libs 11.0.x-compatible
+projects/tools https://github.com/seL4/seL4_tools 11.0.x-compatible
+tools/polly https://github.com/ruslo/polly master
+---
+cd tools
+ln -sfr ../projects/tools seL4

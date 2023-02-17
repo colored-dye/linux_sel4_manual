@@ -1,0 +1,5 @@
+set(VM_IMAGES_DIR "${CMAKE_CURRENT_LIST_DIR}" CACHE STRING "")
+mark_as_advanced(VM_IMAGES_DIR)
+
+include(FindPackageHandleStandardArgs)
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(vm-images DEFAULT_MSG VM_IMAGES_DIR)

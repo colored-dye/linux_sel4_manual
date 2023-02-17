@@ -1,0 +1,1 @@
+regen /home/colored-dye/linux_sel4_manual/build/kernel/gen_headers/plat/machine/devices_gen.h /home/colored-dye/linux_sel4_manual/build/kernel/kernel.dtb;/home/colored-dye/linux_sel4_manual/kernel/tools/hardware.yml;/home/colored-dye/linux_sel4_manual/kernel/tools/hardware_schema.yml;/home/colored-dye/linux_sel4_manual/kernel/tools/hardware_gen.py

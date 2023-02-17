@@ -1,0 +1,8 @@
+/kernel/
+/projects/musllibc/
+/projects/seL4_libs/
+/projects/seL4_projects_libs/
+/projects/sel4runtime/
+/projects/util_libs/
+/projects/tools/
+/tools/polly/

@@ -1,0 +1,1 @@
+projects/sel4arm-vmm/easy-settings.cmake
