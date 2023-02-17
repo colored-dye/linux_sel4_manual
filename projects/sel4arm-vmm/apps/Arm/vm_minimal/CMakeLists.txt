@@ -18,7 +18,7 @@ if("${KernelARMPlatform}" STREQUAL "qemu-arm-virt")
     target_link_directories(
         manual-arm-qemu-vm
         PUBLIC
-            sel4_autoconf
+            # sel4_autoconf
             muslc
             sel4
             sel4runtime

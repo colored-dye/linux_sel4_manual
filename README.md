@@ -1,4 +1,4 @@
-Run Linux VM on seL4, QEMU ARM64 platform, without CAmkES.
+Run Linux VM on seL4, QEMU ARM64 platform, without CAmkES or relevant dependencies.
 
 Core code by reference to https://github.com/dornerworks/sel4-armv8-vmm.
 
