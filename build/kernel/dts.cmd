@@ -1,1 +1,0 @@
-regen /home/colored-dye/linux_sel4_manual/build/kernel/kernel.dtb /home/colored-dye/linux_sel4_manual/build/virt.dts;/home/colored-dye/linux_sel4_manual/kernel/src/plat/qemu-arm-virt/overlay-qemu-arm-virt.dts
