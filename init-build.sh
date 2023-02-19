@@ -1,1 +1,1 @@
-tools/seL4/cmake-tool/init-build.sh
+tools/cmake-tool/init-build.sh

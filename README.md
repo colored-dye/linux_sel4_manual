@@ -12,3 +12,9 @@ Core code by reference to https://github.com/dornerworks/sel4-armv8-vmm.
 ## 1. Library structure difference
 
 The project by Dornerworks(https://github.com/dornerworks/sel4-armv8-vmm) was written in 2014, many of whose libraries are now deprecated, and archived under the GitHub account "SEL4PROJ".
+
+----
+
+Try 10.0.x version's seL4_projects_libs.
+
+The 11.0.x version libraries have bugs, whose fixes are in `diffs/` directory.

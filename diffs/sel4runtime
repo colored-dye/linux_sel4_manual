@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b9bf3bc..1d9aa1c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -19,7 +19,7 @@
+ 
+ cmake_minimum_required(VERSION 3.12.0)
+ 
+-project(sel4runtime C)
++project(sel4runtime C ASM)
+ 
+ set(configure_string "")
+ config_string(

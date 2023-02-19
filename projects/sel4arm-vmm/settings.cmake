@@ -15,30 +15,14 @@ if(AppArch STREQUAL "Arm")
         APPEND
             CMAKE_MODULE_PATH
             ${project_dir}/kernel
-            ${project_dir}/tools/seL4/cmake-tool/helpers/
-            ${project_dir}/tools/seL4/elfloader-tool/
+            ${project_dir}/tools/cmake-tool/helpers/
+            ${project_dir}/tools/elfloader-tool/
             ${project_modules}
     )
+    set(SEL4_CONFIG_DEFAULT_ADVANCED ON)
+
     include(application_settings)
-    
     include(${CMAKE_CURRENT_LIST_DIR}/easy-settings.cmake)
-
-    set(KernelArch "arm" CACHE STRING "" FORCE)
-    if(AARCH64)
-        set(KernelSel4Arch "aarch64" CACHE STRING "" FORCE)
-    else()
-        message(FATAL_ERROR "Not configred as Aarch64")
-    endif()
-    set(KernelArmHypervisorSupport ON CACHE BOOL "" FORCE)
-    set(KernelRootCNodeSizeBits 18 CACHE STRING "" FORCE)
-    set(KernelArmVtimerUpdateVOffset OFF CACHE BOOL "" FORCE)
-    set(KernelArmDisableWFIWFETraps ON CACHE BOOL "" FORCE)
-
-    set(CapDLLoaderMaxObjects 90000 CACHE STRING "" FORCE)
-
-    set(CAmkESCPP OFF CACHE BOOL "" FORCE)
-
-    ApplyCommonReleaseVerificationSettings(${RELEASE} FALSE)
 
     if(NOT MANUAL_VM_APP)
         message(
@@ -53,17 +37,27 @@ if(AppArch STREQUAL "Arm")
 
     find_package(seL4 REQUIRED)
     sel4_configure_platform_settings()
-    sel4_import_kernel()
 
-    find_package(elfloader-tool REQUIRED)
-    ApplyData61ElfLoaderSettings(${KernelARMPlatform} ${KernelSel4Arch})
-    elfloader_import_project()
+    set(KernelArmHypervisorSuppoprt ON CACHE BOOL "" FORCE)
 
-    if(NUM_NODES MATCHES "^[0-9]+$")
-        set(KernelMaxNumNodes ${NUM_NODES} CACHE STRING "" FORCE)
-    else()
-        set(KernelMaxNumNodes 1 CACHE STRING "" FORCE)
+    set(Sel4ArmAppAllowSettingsOverride OFF CACHE BOOL "Allow users to override configuration settings")
+    if(NOT Sel4ArmAppAllowSettingsOverride)
+        if(KernelPlatformQEMUArmVirt)
+            set(SIMULATION ON CACHE BOOL "" FORCE)
+        endif()
+
+        if(SIMULATION)
+            ApplyCommonSimulationSettings(${KernelSel4Arch})
+        endif()
+
+        if(KernelPlatformQEMUArmVirt)
+            if(KernelArmExportPCNTUser AND KernelArmExportPTMRUser)
+                set(Sel4testHaveTimer ON CACHE BOOL "" FORCE)
+            else()
+                set(Sel4testHaveTimer OFF CACHE BOOL "" FORCE)
+            endif()
+        endif()
+
+        ApplyCommonReleaseVerificationSettings(FALSE FALSE)
     endif()
-
-
 endif()

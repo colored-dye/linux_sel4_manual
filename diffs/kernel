@@ -1,0 +1,13 @@
+diff --git a/libsel4/include/sel4/assert.h b/libsel4/include/sel4/assert.h
+index 17a0f3f5d..8541afbf7 100644
+--- a/libsel4/include/sel4/assert.h
++++ b/libsel4/include/sel4/assert.h
+@@ -24,7 +24,7 @@
+ /**
+  * Hidden function, use the macros seL4_Fail or seL4_Assert.
+  */
+-void __assert_fail(const char  *str, const char *file, int line, const char *function);
++void __assert_fail(const char  *str, const char *file, unsigned int line, const char *function);
+ 
+ /**
+  * If expr evaluates to false _seL4_Fail is called with the

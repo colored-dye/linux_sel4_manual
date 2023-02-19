@@ -1,0 +1,13 @@
+diff --git a/libsel4muslcsys/src/sys_thread.c b/libsel4muslcsys/src/sys_thread.c
+index 3afc66f..178fb8b 100644
+--- a/libsel4muslcsys/src/sys_thread.c
++++ b/libsel4muslcsys/src/sys_thread.c
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <stdio.h>
+-#include <bits/errno.h>
++#include <errno.h>
+ 
+ long sys_set_thread_area(va_list ap) {
+     /* As part of the initialization of the C library we need to set the

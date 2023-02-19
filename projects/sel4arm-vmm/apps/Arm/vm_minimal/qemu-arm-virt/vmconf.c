@@ -24,7 +24,7 @@ vmconf_t vm_conf =
     },
     .num_devices = 0,
     .linux_pt_irqs = {
-        INTERRUPT_CORE_VIRT_TIMER,
+        KERNEL_TIMER_IRQ,
     },
     .num_irqs = 1,
     .map_unity = 0

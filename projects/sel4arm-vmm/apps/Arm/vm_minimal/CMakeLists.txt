@@ -14,11 +14,12 @@ if("${KernelARMPlatform}" STREQUAL "qemu-arm-virt")
             ${KernelARMPlatform}/vmconf.h
             ${KernelARMPlatform}/vmconf.c
     )
+
     add_executable(manual-arm-qemu-vm EXCLUDE_FROM_ALL ${deps})
-    target_link_directories(
+
+    target_link_libraries(
         manual-arm-qemu-vm
         PUBLIC
-            # sel4_autoconf
             muslc
             sel4
             sel4runtime
@@ -28,7 +29,10 @@ if("${KernelARMPlatform}" STREQUAL "qemu-arm-virt")
             sel4rpc
             sel4sync
             sel4muslcsys
-            sel4testsupport
             sel4arm-vmm
+            sel4_autoconf
+            sel4arm-amm_Config
     )
+else()
+    message("Platform not supported")
 endif()
